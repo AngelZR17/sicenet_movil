@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Sicenet Movil"
+rootProject.name = "SiceNet_Movil"
 include(":app")
