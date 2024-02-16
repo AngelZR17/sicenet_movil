@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -69,7 +70,7 @@ fun ContentHomeScreenUI(){
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary),
-                title = { Text("Agregar Nota", color = Color.White) },
+                title = { Text("SiceNet", color = Color.White) },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -82,38 +83,52 @@ fun ContentHomeScreenUI(){
             )
         },
         content = {
-            Column(
+            Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(top = dimensionResource(R.dimen.padding_top_column), bottom = 80.dp),
+                contentAlignment = Alignment.Center
             ) {
-                TextField(
-                    modifier = Modifier.fillMaxWidth()
-                        .padding(
-                            dimensionResource(R.dimen.padding_start_textField),
-                            end = dimensionResource(R.dimen.padding_end_textField)
-                        ),
-                    value = currentTitle.value,
-                    onValueChange = { value ->
-                        currentTitle.value = value
-                    },
-                    label = { Text("Numero de control") }
-                )
-                Spacer(modifier = Modifier.height(10.dp))
-                TextField(
-                    modifier = Modifier.fillMaxWidth()
-                        .padding(
-                            dimensionResource(R.dimen.padding_start_textField),
-                            end = dimensionResource(R.dimen.padding_end_textField)
-                        ),
-                    value = currentNote.value,
-                    onValueChange = { value ->
-                        currentNote.value = value
-                    },
-                    label = { Text("Contraseña") }
-                )
-                Spacer(modifier = Modifier.height(10.dp))
-
+                Column(
+                    modifier = Modifier . fillMaxWidth (),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    TextField(
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(
+                                dimensionResource(R.dimen.padding_start_textField),
+                                end = dimensionResource(R.dimen.padding_end_textField)
+                            ),
+                        value = currentTitle.value,
+                        onValueChange = { value ->
+                            currentTitle.value = value
+                        },
+                        label = { Text("Numero de control") }
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    TextField(
+                        modifier = Modifier.fillMaxWidth()
+                            .padding(
+                                dimensionResource(R.dimen.padding_start_textField),
+                                end = dimensionResource(R.dimen.padding_end_textField)
+                            ),
+                        value = currentNote.value,
+                        onValueChange = { value ->
+                            currentNote.value = value
+                        },
+                        label = { Text("Contraseña") }
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(
+                        onClick = {
+                            // Acción a realizar al hacer clic en el botón
+                        },
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    ) {
+                        Text("Ingresar")
+                    }
+                }
             }
         },
         bottomBar = {
