@@ -15,5 +15,4 @@ interface SiceApiService {
     )
     @POST("/ws/wsalumnos.asmx")
     suspend fun performSoapRequest(@Body envelope: SoapEnvelope): Call<AccessLoginResponse>
-
 }
