@@ -3,19 +3,16 @@ package com.brian_angel.sicenet.network
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
-interface SiceApiService {
+
+interface InfoService {
     @Headers(
         "Content-Type: text/xml",
-        "SOAPAction: \"http://tempuri.org/accesoLogin\""
+        "SOAPAction: \"http://tempuri.org/getAlumnoAcademicoWithLineamiento\""
     )
-
     @POST("ws/wsalumnos.asmx")
-    suspend fun obtenerAcceso(
+    suspend fun getInfo(
         @Body requestBody: RequestBody
     ): ResponseBody
-    @GET("ws/wsalumnos.asmx")
-    suspend fun obtenerCookies(): ResponseBody
 }
